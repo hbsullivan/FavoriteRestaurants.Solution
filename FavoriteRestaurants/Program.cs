@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using AnimalShelter.Models;
+using FavoriteRestaurants.Models;
 
-namespace AnimalShelter
+namespace FavoriteRestaurants
 {
   class Program
   {
@@ -13,7 +13,7 @@ namespace AnimalShelter
 
       builder.Services.AddControllersWithViews();
 
-      builder.Services.AddDbContext<AnimalShelterContext>(
+      builder.Services.AddDbContext<FavoriteRestaurantsContext>(
                         dbContextOptions => dbContextOptions
                           .UseMySql(
                             builder.Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(builder.Configuration["ConnectionStrings:DefaultConnection"]
