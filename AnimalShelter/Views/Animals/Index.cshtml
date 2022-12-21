@@ -1,0 +1,36 @@
+@{
+  Layout = "_Layout";
+}
+@using AnimalShelter.Models;
+@* @model ToDoList.Models.Item *@
+
+<h1>Animals</h1>
+@if (Model.Count == 0)
+{
+  <h2>There are no animals yet.</h2>
+}
+<ul>
+  @foreach(Animal animal in Model)
+  {
+    <li>@Html.ActionLink($"{animal.Name}", "Details", new {id = animal.AnimalId})</li>
+  }
+</ul>
+
+
+<p>@Html.ActionLink("Add new Animal", "Create")</p>
+
+@* @model AnimalShelter.Models.Animal; *@
+@using (Html.BeginForm("Search", "Animals", method: FormMethod.Get))
+{
+  <select name="searchby" id="searchby">
+    <option>Breed</option>
+    <option>Type</option>
+    <option>Name</option>
+  </select>
+  
+
+  @* @Html.TextBoxFor(model => Model.Name)  *@
+  <input type="text" name="searchTerm"/>
+  
+  <input type="submit" value="Search"/>
+}

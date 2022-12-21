@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Animal Shelter</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="~/css/styles.css">
+</head>
+
+<body class="d-flex align-items-center justify-content-center p-4">
+  <div class="jumbotron p-4 text-center shadow-lg bg-white " id="jumb">
+    @RenderBody()
+    @* @await Html.PartialAsync("Footer") *@
+  </div>
+</body>
+
+</html>

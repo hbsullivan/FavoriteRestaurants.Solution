@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model AnimalShelter.Models.Animal
+
+<h2>Animal Details:</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
+<h3>
+<h4>@Html.DisplayNameFor(model => model.TypeOfAnimal): @Html.DisplayFor(model => model.TypeOfAnimal)
+<h4>
+<h4>@Html.DisplayNameFor(model => model.Breed): @Html.DisplayFor(model => model.Breed)
+<h4>
+<p>@Html.DisplayNameFor(model => model.DateOfAdmission): @Html.DisplayFor(model => model.DateOfAdmission)
+<p>
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
+
+
+<a href="javascript:void(0);" onclick="history.go(-1)">Back to Search Results</a>
