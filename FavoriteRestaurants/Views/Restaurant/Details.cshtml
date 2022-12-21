@@ -7,9 +7,12 @@
 <h3>Restaurant Details</h2>
 <hr>
 <h2>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h2>
-<h2>@Html.DisplayNameFor(model => model.PriceRange): @Html.DisplayFor(model => model.PriceRange)</h2>
-<h2>@Html.DisplayNameFor(model => model.Rating): @Html.DisplayFor(model => model.Rating)</h2>
+<h4>@Html.DisplayNameFor(model => model.PriceRange): @Html.DisplayFor(model => model.PriceRange)</h4>
+<h4>@Html.DisplayNameFor(model => model.Rating): @Html.DisplayFor(model => model.Rating)/10</h4>
 
-<p>@Html.ActionLink("List of Restaurants", "Index")</p>
-<p>@Html.ActionLink("List of Cuisines", "Index", "Cuisine")</p>
-<p>@Html.ActionLink("Home Page", "Index", "Home")</p>
+<p>@Html.ActionLink("Edit Restaurant", "Edit", new { id = Model.RestaurantId})</p>
+
+@using (Html.BeginForm("Delete", "Restaurant", routeValues: new {id = Model.RestaurantId}))
+{
+  <input type="submit" value="Delete" class="btn btn-primary border">
+}

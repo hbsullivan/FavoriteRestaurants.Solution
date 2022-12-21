@@ -41,5 +41,29 @@ namespace FavoriteRestaurants.Controllers
         .FirstOrDefault(restaurant => restaurant.RestaurantId == id);
       return View(thisRestaurant);
     }
+
+    public ActionResult Edit(int id)
+    {
+      Restaurant thisRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
+      ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "Name");
+      return View(thisRestaurant);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Restaurant restaurant)
+    {
+      _db.Restaurants.Update(restaurant);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public ActionResult Delete(int id)
+    {
+      Restaurant thisRestaurant = _db.Restaurants.FirstOrDefault(Restaurant => Restaurant.RestaurantId == id);
+      _db.Restaurants.Remove(thisRestaurant);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }

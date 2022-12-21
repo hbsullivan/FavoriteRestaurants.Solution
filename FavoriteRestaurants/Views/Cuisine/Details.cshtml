@@ -7,7 +7,7 @@
 
 <h2>Cuisine Details</h2>
 <hr>
-<h3>Cuisine @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
 <br>
 
 @if (Model.Restaurants.Count == 0)
@@ -24,7 +24,11 @@ else
     }
   </ul>
 }
+<hr>
 <p>@Html.ActionLink("Add restaurant", "Create", "Restaurant")</p>
-<p>@Html.ActionLink("Check out restaurants", "Index", "Restaurant")</p>
-
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+<p>@Html.ActionLink("Edit Cuisine", "Edit", new { id = Model.CuisineId })</p>
+@using (Html.BeginForm("Delete", "Cuisine", routeValues: new {id = Model.CuisineId}))
+{
+  <input type="submit" value="Delete" class="btn btn-primary border">
+}
+@* <p>@Html.ActionLink("Delete Cuisine", "Delete", new { id = Model.CuisineId })</p> *@
