@@ -14,7 +14,7 @@
     @Html.LabelFor(model => model.PriceRange) : @Html.TextBoxFor(model => model.PriceRange)
   </p>
   <p>
-    @Html.LabelFor(model => model.Rating) (Out Of 10): @Html.TextBoxFor(model => model.Rating)
+    @Html.LabelFor(model => model.Rating) (Out Of 10): @Html.TextBoxFor(model => model.Rating, new { type="number", max="10"})
   </p>
 
   @Html.LabelFor(model => model.Cuisine)
@@ -23,5 +23,3 @@
 
   <input type="submit" value="Add Restaurant">
 }
-<p>@Html.ActionLink("Check out restaurants", "Index")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
